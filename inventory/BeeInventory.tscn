@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5dqyx3hdxujr"]
+
+[ext_resource type="Script" path="res://inventory/BeeInventory.gd" id="1_kpsjd"]
+[ext_resource type="PackedScene" uid="uid://ogiuricsrl57" path="res://inventory/InventorySlot.tscn" id="2_xuggv"]
+[ext_resource type="Resource" uid="uid://bxbscniq7efbl" path="res://bees/bases/common.tres" id="3_n8mwt"]
+
+[node name="BeeInventory" type="PanelContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -300.0
+offset_right = 360.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_kpsjd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(1, 0.952941, 0.501961, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="InventoryGrid" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 8
+
+[node name="InventorySlot" parent="MarginContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+bee = ExtResource("3_n8mwt")
+
+[node name="InventorySlot2" parent="MarginContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[connection signal="ready" from="." to="." method="_on_ready"]
