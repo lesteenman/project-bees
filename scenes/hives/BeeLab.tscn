@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvaf4sqv7dbss"]
+
+[ext_resource type="Script" path="res://scenes/hives/BeeLab.gd" id="1_eislu"]
+[ext_resource type="PackedScene" uid="uid://csd8mdla7oica" path="res://scenes/hives/BeeSlot.tscn" id="1_u0hdm"]
+
+[node name="BeeLab" type="PanelContainer"]
+offset_right = 210.0
+offset_bottom = 171.0
+script = ExtResource("1_eislu")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.4, 0.301961, 0.356863, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/MarginContainer"]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="BeeSlot1" parent="VBoxContainer2/MarginContainer/HBoxContainer" instance=ExtResource("1_u0hdm")]
+layout_mode = 2
+
+[node name="BeeSlotResult" parent="VBoxContainer2/MarginContainer/HBoxContainer" instance=ExtResource("1_u0hdm")]
+layout_mode = 2
+
+[node name="BeeSlot2" parent="VBoxContainer2/MarginContainer/HBoxContainer" instance=ExtResource("1_u0hdm")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="StartButton" type="Button" parent="VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+disabled = true
+text = "Start"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer2/MarginContainer2"]
+layout_mode = 2
+
+[node name="Bee1Details" type="Label" parent="VBoxContainer2/MarginContainer2/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BeeResultDetails" type="Label" parent="VBoxContainer2/MarginContainer2/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+
+[node name="Bee2Details" type="Label" parent="VBoxContainer2/MarginContainer2/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[connection signal="bee_selected" from="VBoxContainer2/MarginContainer/HBoxContainer/BeeSlot1" to="." method="_on_bee_slot_1_bee_selected"]
+[connection signal="bee_selected" from="VBoxContainer2/MarginContainer/HBoxContainer/BeeSlotResult" to="." method="_on_bee_slot_2_bee_selected"]
+[connection signal="bee_selected" from="VBoxContainer2/MarginContainer/HBoxContainer/BeeSlot2" to="." method="_on_bee_slot_2_bee_selected"]
+[connection signal="pressed" from="VBoxContainer2/HBoxContainer2/StartButton" to="." method="_on_start_button_pressed"]

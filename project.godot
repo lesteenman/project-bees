@@ -11,26 +11,23 @@ config_version=5
 [application]
 
 config/name="Project Bees"
-run/main_scene="res://main.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerBees="*res://player_bees.gd"
-BeeHives="*res://bee_hives.gd"
+PlayerBees="*res://state/player_bees.gd"
+BeeHives="res://state/bee_hives.gd"
 
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
 window/size/initial_position_type=2
+window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/format_on_save/plugin.cfg")
 
 [rendering]
 
