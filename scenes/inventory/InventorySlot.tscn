@@ -1,13 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://ogiuricsrl57"]
+[gd_scene load_steps=3 format=3 uid="uid://ogiuricsrl57"]
 
 [ext_resource type="Script" path="res://scenes/inventory/InventorySlot.gd" id="1_4ommn"]
+[ext_resource type="StyleBox" uid="uid://blbrn3ysdnjqv" path="res://assets/styles/BorderedLightWood.tres" id="1_12la3"]
 
 [node name="InventorySlot" type="PanelContainer"]
 custom_minimum_size = Vector2(80, 80)
 offset_right = 80.0
 offset_bottom = 80.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("1_12la3")
 script = ExtResource("1_4ommn")
 metadata/_edit_group_ = true
 

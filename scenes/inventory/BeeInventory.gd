@@ -5,18 +5,16 @@ const INVENTORY_SLOT = preload("res://scenes/inventory/InventorySlot.tscn")
 
 var bees_target
 var selected = false
-
-signal bee_selected
-signal bee_deselected
-
+var slots = []
 
 func _on_ready():
 	print("should set slots to contents of player inventory, which is", PlayerBees.bees)
 
+	PlayerBees.refresh_inventory_guis.connect(updateGrid)
 	updateGrid()
 
-
 func updateGrid():
+	slots.clear()
 	for child in inventory_grid.get_children():
 		child.queue_free()
 
@@ -26,24 +24,26 @@ func updateGrid():
 
 	for s in range(total_slots):
 		var slot = INVENTORY_SLOT.instantiate()
+		slots.append(slot)
 		if PlayerBees.bees.size() > s:
 			slot.bee = PlayerBees.bees[s]
 
-		slot.connect("bee_clicked", self.slot_clicked)
+		slot.connect("bee_removed", _on_bee_removed)
 
 		#print("added a slot:", slot, slot.bee)
 		inventory_grid.add_child(slot)
 
+func return_bee(bee: Bee):
+	print("BeeInventory > should return bee to its slot", bee)
+	PlayerBees.add_item(bee)
+	for s in slots:
+		if s.bee == bee:
+			print("return to slot ", s)
+			s.setItemReserved(false)
 
 func set_target(target):
 	self.bees_target = target
 
-
-func slot_clicked(bee):
-	if bee:
-		if selected:
-			selected = false
-			bee_selected.emit(bee)
-		else:
-			selected = true
-			bee_deselected.emit(bee)
+func _on_bee_removed(bee: Bee):
+	print("bee removed: ", bee)
+	PlayerBees.remove_item(bee)

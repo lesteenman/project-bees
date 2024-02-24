@@ -71,7 +71,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 horizontal_alignment = 2
 
+[connection signal="bee_clicked" from="VBoxContainer2/MarginContainer/HBoxContainer/BeeSlot1" to="." method="_on_bee_slot_1_bee_clicked"]
 [connection signal="bee_selected" from="VBoxContainer2/MarginContainer/HBoxContainer/BeeSlot1" to="." method="_on_bee_slot_1_bee_selected"]
+[connection signal="bee_clicked" from="VBoxContainer2/MarginContainer/HBoxContainer/BeeSlotResult" to="." method="_on_bee_slot_result_bee_clicked"]
 [connection signal="bee_selected" from="VBoxContainer2/MarginContainer/HBoxContainer/BeeSlotResult" to="." method="_on_bee_slot_2_bee_selected"]
+[connection signal="bee_clicked" from="VBoxContainer2/MarginContainer/HBoxContainer/BeeSlot2" to="." method="_on_bee_slot_2_bee_clicked"]
 [connection signal="bee_selected" from="VBoxContainer2/MarginContainer/HBoxContainer/BeeSlot2" to="." method="_on_bee_slot_2_bee_selected"]
 [connection signal="pressed" from="VBoxContainer2/HBoxContainer2/StartButton" to="." method="_on_start_button_pressed"]

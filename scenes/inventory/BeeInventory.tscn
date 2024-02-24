@@ -12,7 +12,7 @@ script = ExtResource("3_a11yv")
 custom_minimum_size = Vector2(200, 80)
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 110.0
+offset_bottom = 477.0
 grow_horizontal = 2
 theme_override_styles/panel = ExtResource("1_pvlly")
 script = ExtResource("1_kpsjd")
@@ -26,17 +26,38 @@ theme_override_constants/margin_bottom = 15
 
 [node name="InventoryGrid" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2
-columns = 8
+size_flags_horizontal = 4
+columns = 7
 
 [node name="InventorySlot" parent="MarginContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
 layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 2
 bee = SubResource("Resource_7r51d")
 
 [node name="InventorySlot2" parent="MarginContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
+
+[node name="InventorySlot3" parent="MarginContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
+layout_mode = 2
+size_flags_vertical = 2
+bee = SubResource("Resource_7r51d")
+
+[node name="InventorySlot4" parent="MarginContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="InventorySlot5" parent="MarginContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
+layout_mode = 2
+size_flags_vertical = 2
+bee = SubResource("Resource_7r51d")
+
+[node name="InventorySlot6" parent="MarginContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="InventorySlot7" parent="MarginContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 1
 
 [connection signal="ready" from="." to="." method="_on_ready"]
