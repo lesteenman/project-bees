@@ -10,7 +10,7 @@ func _init(c1: Chromosome, c2: Chromosome):
 	self.chromosome2 = c2
 
 func get_texture() -> Texture2D:
-	return load("res://icon.svg")
+	return load("res://game/assets/icon.svg")
 
 func display_name() -> String:
 	return chromosome1.species.display_name

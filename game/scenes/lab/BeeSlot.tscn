@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://csd8mdla7oica"]
 
-[ext_resource type="StyleBox" uid="uid://blbrn3ysdnjqv" path="res://assets/styles/BorderedLightWood.tres" id="1_bb4s3"]
-[ext_resource type="Script" path="res://scenes/hives/BeeSlot.gd" id="1_ip1xc"]
+[ext_resource type="StyleBox" uid="uid://blbrn3ysdnjqv" path="res://game/assets/styles/BorderedLightWood.tres" id="1_bb4s3"]
+[ext_resource type="Script" path="res://game/scenes/storage/InventorySlot.gd" id="2_vfsag"]
 
 [node name="BeeSlot" type="PanelContainer"]
 custom_minimum_size = Vector2(80, 80)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = ExtResource("1_bb4s3")
-script = ExtResource("1_ip1xc")
+script = ExtResource("2_vfsag")
 metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -33,11 +33,13 @@ mouse_filter = 2
 theme_override_styles/panel = ExtResource("1_bb4s3")
 
 [node name="BeeTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/PanelContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 expand_mode = 1
 
-[node name="BeeName" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="BeeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [connection signal="gui_input" from="MarginContainer" to="." method="_on_margin_container_gui_input"]

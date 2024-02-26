@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ciud1r0307wkl"]
 
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_s6oc8"]
-[ext_resource type="PackedScene" uid="uid://bvaf4sqv7dbss" path="res://scenes/hives/BeeLab.tscn" id="2_vhan4"]
-[ext_resource type="PackedScene" uid="uid://c5dqyx3hdxujr" path="res://scenes/inventory/BeeInventory.tscn" id="3_cwqui"]
+[ext_resource type="Script" path="res://game/scenes/main.gd" id="1_s6oc8"]
+[ext_resource type="PackedScene" uid="uid://bvaf4sqv7dbss" path="res://game/scenes/lab/BeeLab.tscn" id="2_vhan4"]
+[ext_resource type="PackedScene" uid="uid://c5dqyx3hdxujr" path="res://game/scenes/storage/BeeInventory.tscn" id="3_cwqui"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -41,6 +41,7 @@ size_flags_vertical = 0
 horizontal_scroll_mode = 0
 
 [node name="BeeInventory" parent="ScrollContainer" instance=ExtResource("3_cwqui")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

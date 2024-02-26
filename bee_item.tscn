@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsij8kj2daqdv"]
+[gd_scene load_steps=3 format=3 uid="uid://bmco24mmgjgbm"]
 
-[ext_resource type="Texture2D" uid="uid://coqk4y7b2k05t" path="res://icon.svg" id="1_b8wve"]
+[ext_resource type="Texture2D" uid="uid://coqk4y7b2k05t" path="res://game/assets/icon.svg" id="1_b8wve"]
 
 [sub_resource type="GDScript" id="GDScript_eig0a"]
 script/source = "extends Resource

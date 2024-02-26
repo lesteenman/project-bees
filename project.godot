@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="ProjectBees"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://game/scenes/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0.298039, 0.227451, 0.294118, 1)
-config/icon="res://icon.svg"
+config/icon="res://game/assets/icon.svg"
 
 [autoload]
 
-PlayerBees="*res://state/player_bees.gd"
-BeeHives="res://state/bee_hives.gd"
+PlayerBees="*res://game/state/player_bees.gd"
+BeeHives="res://game/state/bee_hives.gd"
 
 [display]
 

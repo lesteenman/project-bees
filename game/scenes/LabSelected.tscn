@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfnqm3uymt1ao"]
 
-[ext_resource type="PackedScene" uid="uid://bvaf4sqv7dbss" path="res://scenes/hives/BeeLab.tscn" id="1_as28t"]
-[ext_resource type="PackedScene" uid="uid://c5dqyx3hdxujr" path="res://scenes/inventory/BeeInventory.tscn" id="2_bkw3d"]
+[ext_resource type="PackedScene" uid="uid://bvaf4sqv7dbss" path="res://game/scenes/lab/BeeLab.tscn" id="1_as28t"]
+[ext_resource type="PackedScene" uid="uid://c5dqyx3hdxujr" path="res://game/scenes/storage/BeeInventory.tscn" id="2_bkw3d"]
 
 [node name="LabSelected" type="PanelContainer"]
 anchors_preset = 15

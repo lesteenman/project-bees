@@ -26,6 +26,9 @@ func update_bee() -> void:
 		bee_texture.texture = null
 		bee_name.text = ""
 #
+func _get_drag_data(at_position: Vector2) -> Variant:
+	return bee
+
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	return allow_input && !bee && data.get_type() == "Bee"
 #

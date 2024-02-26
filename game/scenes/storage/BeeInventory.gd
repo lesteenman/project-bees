@@ -1,9 +1,8 @@
 extends PanelContainer
 
 @onready var inventory_grid = $MarginContainer/InventoryGrid
-const INVENTORY_SLOT = preload("res://scenes/inventory/InventorySlot.tscn")
+const INVENTORY_SLOT = preload("res://game/scenes/storage/InventorySlot.tscn")
 
-var bees_target
 var selected = false
 var slots = []
 
@@ -24,14 +23,14 @@ func updateGrid():
 
 	for s in range(total_slots):
 		var slot = INVENTORY_SLOT.instantiate()
+		inventory_grid.add_child(slot)
+
 		slots.append(slot)
 		if PlayerBees.bees.size() > s:
 			slot.bee = PlayerBees.bees[s]
 
 		slot.connect("bee_removed", _on_bee_removed)
-
-		#print("added a slot:", slot, slot.bee)
-		inventory_grid.add_child(slot)
+		slot.connect("bee_added", func(bee): PlayerBees.add_item(bee))
 
 func return_bee(bee: Bee):
 	print("BeeInventory > should return bee to its slot", bee)
@@ -41,8 +40,20 @@ func return_bee(bee: Bee):
 			print("return to slot ", s)
 			s.setItemReserved(false)
 
-func set_target(target):
-	self.bees_target = target
+func add_item_to_storage(item):
+	match item.get_type():
+		"Bee":
+			add_bee_to_storage(item)
+		_:
+			push_error("unrecognized item added to inventory ", item, typeof(item), item.get_type())
+
+func add_bee_to_storage(bee: Bee):
+	print("should be adding a bee to storage: ", bee)
+	PlayerBees.add_item(bee)
+	for s in slots:
+		if not s.bee:
+			print("add to slot ", s)
+			s.bee = bee
 
 func _on_bee_removed(bee: Bee):
 	print("bee removed: ", bee)

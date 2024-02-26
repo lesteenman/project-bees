@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://c5dqyx3hdxujr"]
 
-[ext_resource type="Script" path="res://scenes/inventory/BeeInventory.gd" id="1_kpsjd"]
-[ext_resource type="StyleBox" uid="uid://blbrn3ysdnjqv" path="res://assets/styles/BorderedLightWood.tres" id="1_pvlly"]
-[ext_resource type="PackedScene" uid="uid://ogiuricsrl57" path="res://scenes/inventory/InventorySlot.tscn" id="2_xuggv"]
-[ext_resource type="Script" path="res://models/bees/bee.gd" id="3_a11yv"]
+[ext_resource type="Script" path="res://game/scenes/storage/BeeInventory.gd" id="1_kpsjd"]
+[ext_resource type="StyleBox" uid="uid://blbrn3ysdnjqv" path="res://game/assets/styles/BorderedLightWood.tres" id="1_pvlly"]
+[ext_resource type="PackedScene" uid="uid://ogiuricsrl57" path="res://game/scenes/storage/InventorySlot.tscn" id="2_xuggv"]
+[ext_resource type="Script" path="res://game/models/bees/bee.gd" id="3_a11yv"]
 
 [sub_resource type="Resource" id="Resource_7r51d"]
 script = ExtResource("3_a11yv")

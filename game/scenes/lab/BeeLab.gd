@@ -1,5 +1,7 @@
 extends PanelContainer
 
+signal add_item_to_storage
+
 
 @export var beelab: BeeLab:
 	set(value):
@@ -15,14 +17,23 @@ extends PanelContainer
 var inventory_handler
 
 @onready var start_button: Button = $VBoxContainer2/HBoxContainer2/StartButton
-@onready var bee_slot_1: PanelContainer = $VBoxContainer2/MarginContainer/HBoxContainer/BeeSlot1
-@onready var bee_slot_result: PanelContainer = $VBoxContainer2/MarginContainer/HBoxContainer/BeeSlotResult
-@onready var bee_slot_2: PanelContainer = $VBoxContainer2/MarginContainer/HBoxContainer/BeeSlot2
+@onready var bee_slot_1: PanelContainer = %BeeSlot1
+@onready var bee_slot_result: PanelContainer = %BeeSlotResult
+@onready var bee_slot_2: PanelContainer = %BeeSlot2
 
-@onready var bee_1_details: Label = $VBoxContainer2/MarginContainer2/HBoxContainer3/Bee1Details
-@onready var bee_2_details: Label = $VBoxContainer2/MarginContainer2/HBoxContainer3/Bee2Details
-@onready var bee_result_details: Label = $VBoxContainer2/MarginContainer2/HBoxContainer3/BeeResultDetails
+@onready var bee_1_details: Label = %Bee1Details
+@onready var bee_2_details: Label = %Bee2Details
+@onready var bee_result_details: Label = %BeeResultDetails
 
+func _ready() -> void:
+	bee_slot_1.connect("bee_removed", func(): set_bee_1(null))
+	bee_slot_1.connect("bee_added", func(value): set_bee_1(value))
+
+	bee_slot_2.connect("bee_removed", func(): set_bee_2(null))
+	bee_slot_2.connect("bee_added", func(value): set_bee_2(value))
+
+	bee_slot_result.connect("bee_removed", func(): set_bee_result(null))
+	bee_slot_result.connect("bee_added", func(value): set_bee_result(value))
 
 func _on_start_button_pressed() -> void:
 	print("start the breeding!")
@@ -54,9 +65,7 @@ func set_bee_2(bee: Bee):
 
 func set_bee_result(bee: Bee) -> void:
 	bee_result_details.text = build_description(bee)
-
 	bee_slot_result.bee = bee
-	bee_slot_result.update_bee()
 
 func build_description(bee: Bee) -> String:
 	if !bee:
