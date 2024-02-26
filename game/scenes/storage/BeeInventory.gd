@@ -32,14 +32,6 @@ func updateGrid():
 		slot.connect("bee_removed", _on_bee_removed)
 		slot.connect("bee_added", func(bee): PlayerBees.add_item(bee))
 
-func return_bee(bee: Bee):
-	print("BeeInventory > should return bee to its slot", bee)
-	PlayerBees.add_item(bee)
-	for s in slots:
-		if s.bee == bee:
-			print("return to slot ", s)
-			s.setItemReserved(false)
-
 func add_item_to_storage(item):
 	match item.get_type():
 		"Bee":
@@ -48,7 +40,6 @@ func add_item_to_storage(item):
 			push_error("unrecognized item added to inventory ", item, typeof(item), item.get_type())
 
 func add_bee_to_storage(bee: Bee):
-	print("should be adding a bee to storage: ", bee)
 	PlayerBees.add_item(bee)
 	for s in slots:
 		if not s.bee:
@@ -56,5 +47,4 @@ func add_bee_to_storage(bee: Bee):
 			s.bee = bee
 
 func _on_bee_removed(bee: Bee):
-	print("bee removed: ", bee)
 	PlayerBees.remove_item(bee)

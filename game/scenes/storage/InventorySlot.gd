@@ -50,12 +50,10 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	bee_added.emit(bee)
 
 func on_drag_successful():
-	print("bee was dropped off, remove from inv")
 	bee_removed.emit(bee)
 	dragging_bee = null
 
 func on_drag_cancelled():
-	print("drag-and-drop cancelled")
 	bee = dragging_bee
 	dragging_bee = null
 

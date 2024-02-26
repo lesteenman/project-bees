@@ -1,6 +1,6 @@
 extends Node
 
-class_name BeeLab
+class_name BeeLabModel
 
 var bee1: Bee
 var bee2: Bee
@@ -13,8 +13,8 @@ signal set_bee_result
 
 func breed():
 	bee_result = BeeCrossbreedsManager.crossbreed(bee1, bee2)
-	#set_bee_1.emit(null)
-	#set_bee_2.emit(null)
+	set_bee_1.emit(null)
+	set_bee_2.emit(null)
 	set_bee_result.emit(bee_result)
 
 func max_bees() -> int:
