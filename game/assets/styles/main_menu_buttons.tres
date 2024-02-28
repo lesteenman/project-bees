@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dti8rlkl30lkp"]
+
+[ext_resource type="FontFile" uid="uid://cqbefwn67lb7a" path="res://game/assets/fonts/Rubik-Regular.ttf" id="1_cnajo"]
+[ext_resource type="StyleBox" uid="uid://b4jaodinptk7b" path="res://game/assets/styles/main_menu_button_panel.tres" id="2_mr7pd"]
+
+[resource]
+default_font_size = 80
+Button/colors/font_color = Color(0.290196, 0.215686, 0.286275, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 2
+Button/fonts/font = ExtResource("1_cnajo")
+Button/styles/focus = ExtResource("2_mr7pd")
+Button/styles/hover = ExtResource("2_mr7pd")
+Button/styles/normal = ExtResource("2_mr7pd")
+Button/styles/pressed = ExtResource("2_mr7pd")

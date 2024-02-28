@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://ciud1r0307wkl"]
+[gd_scene load_steps=8 format=3 uid="uid://ciud1r0307wkl"]
 
+[ext_resource type="Theme" uid="uid://d15kfcgl26a1r" path="res://game/assets/styles/base_theme.tres" id="1_210bq"]
 [ext_resource type="Script" path="res://game/scenes/main.gd" id="1_s6oc8"]
 [ext_resource type="PackedScene" uid="uid://bvaf4sqv7dbss" path="res://game/scenes/lab/BeeLab.tscn" id="2_vhan4"]
 [ext_resource type="PackedScene" uid="uid://c5dqyx3hdxujr" path="res://game/scenes/storage/BeeInventory.tscn" id="3_cwqui"]
+[ext_resource type="Theme" uid="uid://dti8rlkl30lkp" path="res://game/assets/styles/main_menu_buttons.tres" id="5_6n0qg"]
+
+[sub_resource type="Gradient" id="Gradient_wlo3x"]
+offsets = PackedFloat32Array(0, 0.99763)
+colors = PackedColorArray(0.203922, 0.356863, 0.247059, 1, 0.317647, 0.596078, 0.447059, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tj41y"]
+gradient = SubResource("Gradient_wlo3x")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,25 +20,53 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_210bq")
 script = ExtResource("1_s6oc8")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 720.0
+offset_right = 1280.0
+offset_bottom = -560.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.227451, 0.490196, 0.466667, 1)
+rotation = 1.5708
+texture = SubResource("GradientTexture1D_tj41y")
 
-[node name="BeeLab" parent="." instance=ExtResource("2_vhan4")]
+[node name="LabControl" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.079
+anchor_bottom = 0.047
+offset_left = 782.0
+offset_top = 2.0
+offset_right = 1269.12
+offset_bottom = 626.84
+metadata/_edit_group_ = true
+
+[node name="BeeLab" parent="LabControl" instance=ExtResource("2_vhan4")]
+unique_name_in_owner = true
 layout_mode = 2
-offset_right = 720.0
-offset_bottom = 218.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="LabControl"]
 clip_contents = false
 custom_minimum_size = Vector2(2.08165e-12, 400)
+layout_mode = 2
+size_flags_vertical = 0
+horizontal_scroll_mode = 0
+
+[node name="BeeInventory" parent="LabControl/ScrollContainer" instance=ExtResource("3_cwqui")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MainMenu" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -37,11 +74,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-size_flags_vertical = 0
-horizontal_scroll_mode = 0
+theme_override_constants/separation = 0
 
-[node name="BeeInventory" parent="ScrollContainer" instance=ExtResource("3_cwqui")]
-unique_name_in_owner = true
+[node name="ColorRect" type="ColorRect" parent="MainMenu"]
+custom_minimum_size = Vector2(2.08165e-12, 32)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+color = Color(0.298039, 0.227451, 0.294118, 1)
+
+[node name="Beeopedia" type="Button" parent="MainMenu"]
+layout_mode = 2
+theme = ExtResource("5_6n0qg")
+text = "BEE-O-PEDIA"
+
+[node name="Labs" type="Button" parent="MainMenu"]
+layout_mode = 2
+theme = ExtResource("5_6n0qg")
+text = "LABS"
+
+[node name="Fields" type="Button" parent="MainMenu"]
+layout_mode = 2
+theme = ExtResource("5_6n0qg")
+text = "FIELDS"

@@ -17,9 +17,9 @@ signal add_item_to_storage
 var inventory_handler
 
 @onready var start_button: Button = %StartButton
-@onready var bee_slot_1: PanelContainer = %BeeSlot1
-@onready var bee_slot_result: PanelContainer = %BeeSlotResult
-@onready var bee_slot_2: PanelContainer = %BeeSlot2
+@onready var bee_slot_1: Container = %BeeSlot1
+@onready var bee_slot_result: Container = %BeeSlotResult
+@onready var bee_slot_2: Container = %BeeSlot2
 
 @onready var bee_1_details: Label = %Bee1Details
 @onready var bee_2_details: Label = %Bee2Details

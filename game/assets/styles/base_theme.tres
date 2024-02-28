@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d15kfcgl26a1r"]
+
+[ext_resource type="FontFile" uid="uid://cqbefwn67lb7a" path="res://game/assets/fonts/Rubik-Regular.ttf" id="1_4ofj0"]
+
+[resource]
+Button/fonts/font = ExtResource("1_4ofj0")

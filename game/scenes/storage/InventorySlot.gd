@@ -1,4 +1,4 @@
-extends PanelContainer
+extends MarginContainer
 
 var dragging_bee: Bee = null
 
