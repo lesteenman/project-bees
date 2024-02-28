@@ -15,5 +15,8 @@ func get_texture() -> Texture2D:
 func display_name() -> String:
 	return chromosome1.species.display_name
 
+func active_species() -> BeeSpecies:
+	return chromosome1.species
+
 func get_type() -> String:
 	return "Bee"
