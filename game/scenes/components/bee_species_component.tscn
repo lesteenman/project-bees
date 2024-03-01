@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://dr7cgc0643w3o"]
+
+[ext_resource type="Script" path="res://game/scenes/components/bee_species_component.gd" id="1_5ihdc"]
+[ext_resource type="Texture2D" uid="uid://3p1ry810rlfd" path="res://game/assets/bees/sample/outline_body.png" id="2_uxvb4"]
+[ext_resource type="Texture2D" uid="uid://cg1tw1yheshty" path="res://game/assets/bees/sample/outline_head.png" id="3_ww5a0"]
+[ext_resource type="Texture2D" uid="uid://bm781415jhj4x" path="res://game/assets/bees/sample/outline_wings.png" id="4_gt7ci"]
+[ext_resource type="Texture2D" uid="uid://qtibrlo1am4t" path="res://game/assets/bees/sample/color_1.png" id="5_bjsxp"]
+[ext_resource type="Texture2D" uid="uid://cxvs3sehct8wf" path="res://game/assets/bees/sample/color_2.png" id="6_d5s00"]
+[ext_resource type="Texture2D" uid="uid://cp1qhimbdjptw" path="res://game/assets/bees/sample/wings.png" id="7_sjxga"]
+[ext_resource type="Texture2D" uid="uid://ctng0v682noi8" path="res://game/assets/bees/sample/legs.png" id="8_t32rs"]
+[ext_resource type="Texture2D" uid="uid://dpfodsdt0vgkv" path="res://game/assets/bees/sample/crown.png" id="9_u0qrp"]
+
+[node name="BeeSpeciesComponent" type="CenterContainer"]
+custom_minimum_size = Vector2(64, 64)
+script = ExtResource("1_5ihdc")
+
+[node name="BodyOutline" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_uxvb4")
+
+[node name="HeadOutline" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_ww5a0")
+
+[node name="WingsOutline" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_gt7ci")
+
+[node name="Color1" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("5_bjsxp")
+
+[node name="Color2" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("6_d5s00")
+
+[node name="Wings" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("7_sjxga")
+
+[node name="Legs" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("8_t32rs")
+
+[node name="Crown" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("9_u0qrp")
