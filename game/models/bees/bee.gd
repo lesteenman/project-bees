@@ -1,9 +1,13 @@
+@tool
 extends Resource
 
 class_name Bee
 
+enum BeeRoleEnum {DRONE, PRINCESS, QUEEN}
+
 @export var chromosome1: Chromosome
 @export var chromosome2: Chromosome
+@export var role: BeeRoleEnum
 
 func _init(c1: Chromosome, c2: Chromosome):
 	self.chromosome1 = c1

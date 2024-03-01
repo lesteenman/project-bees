@@ -11,15 +11,26 @@ var dragging_bee: Bee = null
 
 @onready var texture_rect = %BeeTexture
 @onready var label = %BeeLabel
+#@onready var bee_component: Control = %BeeComponent
+@onready var bee_holder = %BeeHolder
+
+const BEE_COMPONENT = preload("res://game/scenes/components/bee_component.tscn")
 
 signal bee_removed
 signal bee_added
 
+var bee_component
+
 func updateBee() -> void:
 	if bee:
-		var texture = bee.get_texture()
-		if texture:
-			texture_rect.texture = texture
+		if not bee_component:
+			bee_component = BEE_COMPONENT.instantiate()
+			bee_holder.add_child(bee_component)
+
+		bee_component.bee = bee
+		#var texture = bee.get_texture()
+		#if texture:
+			#texture_rect.texture = texture
 
 		var display_name = bee.display_name()
 		if display_name:
@@ -27,14 +38,19 @@ func updateBee() -> void:
 	else:
 		texture_rect.texture = null
 		label.text = ""
+		bee_component.queue_free()
+		bee_component = null
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	if not bee:
 		return null
 
 	dragging_bee = bee
-	var drag_preview = TextureRect.new()
-	drag_preview.texture = bee.get_texture()
+
+	var drag_preview = BEE_COMPONENT.instantiate()
+	drag_preview.bee = bee
+	#var drag_preview = TextureRect.new()
+	#drag_preview.texture = bee.get_texture()
 
 	set_drag_preview(drag_preview);
 

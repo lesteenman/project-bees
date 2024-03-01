@@ -16,17 +16,19 @@ metadata/_edit_group_ = true
 layout_mode = 2
 mouse_filter = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+[node name="BeeHolder" type="CenterContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="BeeTexture" type="TextureRect" parent="VBoxContainer/CenterContainer"]
+[node name="BeeTexture" type="TextureRect" parent="VBoxContainer/BeeHolder"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 mouse_filter = 2
 expand_mode = 1
 
-[node name="InventorySlot" type="TextureRect" parent="VBoxContainer/CenterContainer"]
+[node name="InventorySlot" type="TextureRect" parent="VBoxContainer/BeeHolder"]
 layout_mode = 2
 texture = ExtResource("3_dtn6a")
 

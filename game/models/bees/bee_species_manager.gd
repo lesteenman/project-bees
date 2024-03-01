@@ -74,8 +74,6 @@ const SPECIES_STATS = {
 const required_stats = ["display_name", "color_outline", "color_1", "color_2"]
 static func verify_species():
 	for species in SPECIES.values():
-		print("verifying %s" % species)
-
 		if !SPECIES_STATS.has(species):
 			push_error("no stats defined for species %s" % species)
 			continue

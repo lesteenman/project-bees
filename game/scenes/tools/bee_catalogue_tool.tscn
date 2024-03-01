@@ -1,6 +1,254 @@
-[gd_scene load_steps=2 format=3 uid="uid://co606vfxbr6jn"]
+[gd_scene load_steps=43 format=3 uid="uid://co606vfxbr6jn"]
 
 [ext_resource type="Script" path="res://game/scenes/tools/bee_catalogue_tool.gd" id="1_elwdf"]
+[ext_resource type="PackedScene" uid="uid://ebmm3himtfr1" path="res://game/scenes/components/bee_component.tscn" id="2_jqi8h"]
+[ext_resource type="Script" path="res://game/scenes/components/bee_component.gd" id="3_7io0r"]
+[ext_resource type="Script" path="res://game/models/genetics/chromosome.gd" id="4_2ha0q"]
+[ext_resource type="Script" path="res://game/models/bees/bee_species.gd" id="5_kwkyh"]
+[ext_resource type="Script" path="res://game/models/bees/bee.gd" id="6_mhrjm"]
+
+[sub_resource type="Resource" id="Resource_4myoq"]
+script = ExtResource("5_kwkyh")
+display_name = "common"
+color_outline = Color(0, 0, 0, 1)
+color_1 = Color(1, 0.9, 1, 1)
+color_2 = Color(0.8, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_cv37x"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_4myoq")
+productivity = 2
+fertility = 3
+lifespan = 2
+
+[sub_resource type="Resource" id="Resource_fmop1"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_4myoq")
+productivity = 2
+fertility = 3
+lifespan = 2
+
+[sub_resource type="Resource" id="Resource_v8y1h"]
+script = ExtResource("6_mhrjm")
+chromosome1 = SubResource("Resource_cv37x")
+chromosome2 = SubResource("Resource_fmop1")
+role = 0
+
+[sub_resource type="Resource" id="Resource_nltne"]
+script = ExtResource("5_kwkyh")
+display_name = "common"
+color_outline = Color(0, 0, 0, 1)
+color_1 = Color(1, 0.9, 1, 1)
+color_2 = Color(0.8, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_1r0nt"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_nltne")
+productivity = 2
+fertility = 3
+lifespan = 2
+
+[sub_resource type="Resource" id="Resource_hsnyc"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_nltne")
+productivity = 2
+fertility = 3
+lifespan = 2
+
+[sub_resource type="Resource" id="Resource_mo4rm"]
+script = ExtResource("6_mhrjm")
+chromosome1 = SubResource("Resource_1r0nt")
+chromosome2 = SubResource("Resource_hsnyc")
+role = 1
+
+[sub_resource type="Resource" id="Resource_c30p0"]
+script = ExtResource("5_kwkyh")
+display_name = "common"
+color_outline = Color(0, 0, 0, 1)
+color_1 = Color(1, 0.9, 1, 1)
+color_2 = Color(0.8, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_f5h7g"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_c30p0")
+productivity = 2
+fertility = 3
+lifespan = 2
+
+[sub_resource type="Resource" id="Resource_vmv1f"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_c30p0")
+productivity = 2
+fertility = 3
+lifespan = 2
+
+[sub_resource type="Resource" id="Resource_kadd1"]
+script = ExtResource("6_mhrjm")
+chromosome1 = SubResource("Resource_f5h7g")
+chromosome2 = SubResource("Resource_vmv1f")
+role = 2
+
+[sub_resource type="Resource" id="Resource_u0smc"]
+script = ExtResource("5_kwkyh")
+display_name = "forest"
+color_outline = Color(0, 1, 0, 1)
+color_1 = Color(0, 0.501961, 0, 1)
+color_2 = Color(0.133333, 0.545098, 0.133333, 1)
+
+[sub_resource type="Resource" id="Resource_7lswh"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_u0smc")
+productivity = 3
+fertility = 2
+lifespan = 3
+
+[sub_resource type="Resource" id="Resource_61t73"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_u0smc")
+productivity = 3
+fertility = 2
+lifespan = 3
+
+[sub_resource type="Resource" id="Resource_of5nc"]
+script = ExtResource("6_mhrjm")
+chromosome1 = SubResource("Resource_7lswh")
+chromosome2 = SubResource("Resource_61t73")
+role = 0
+
+[sub_resource type="Resource" id="Resource_2t3rk"]
+script = ExtResource("5_kwkyh")
+display_name = "forest"
+color_outline = Color(0, 1, 0, 1)
+color_1 = Color(0, 0.501961, 0, 1)
+color_2 = Color(0.133333, 0.545098, 0.133333, 1)
+
+[sub_resource type="Resource" id="Resource_bjgyc"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_2t3rk")
+productivity = 3
+fertility = 2
+lifespan = 3
+
+[sub_resource type="Resource" id="Resource_myarn"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_2t3rk")
+productivity = 3
+fertility = 2
+lifespan = 3
+
+[sub_resource type="Resource" id="Resource_r3c8n"]
+script = ExtResource("6_mhrjm")
+chromosome1 = SubResource("Resource_bjgyc")
+chromosome2 = SubResource("Resource_myarn")
+role = 1
+
+[sub_resource type="Resource" id="Resource_wb7bf"]
+script = ExtResource("5_kwkyh")
+display_name = "forest"
+color_outline = Color(0, 1, 0, 1)
+color_1 = Color(0, 0.501961, 0, 1)
+color_2 = Color(0.133333, 0.545098, 0.133333, 1)
+
+[sub_resource type="Resource" id="Resource_cqjby"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_wb7bf")
+productivity = 3
+fertility = 2
+lifespan = 3
+
+[sub_resource type="Resource" id="Resource_oje3r"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_wb7bf")
+productivity = 3
+fertility = 2
+lifespan = 3
+
+[sub_resource type="Resource" id="Resource_3ck48"]
+script = ExtResource("6_mhrjm")
+chromosome1 = SubResource("Resource_cqjby")
+chromosome2 = SubResource("Resource_oje3r")
+role = 2
+
+[sub_resource type="Resource" id="Resource_rtfho"]
+script = ExtResource("5_kwkyh")
+display_name = "water"
+color_outline = Color(0, 0, 1, 1)
+color_1 = Color(0.678431, 0.847059, 0.901961, 1)
+color_2 = Color(0.878431, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_y2p25"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_rtfho")
+productivity = 1
+fertility = 3
+lifespan = 3
+
+[sub_resource type="Resource" id="Resource_phv05"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_rtfho")
+productivity = 1
+fertility = 3
+lifespan = 3
+
+[sub_resource type="Resource" id="Resource_onkt8"]
+script = ExtResource("6_mhrjm")
+chromosome1 = SubResource("Resource_y2p25")
+chromosome2 = SubResource("Resource_phv05")
+role = 0
+
+[sub_resource type="Resource" id="Resource_yiyn3"]
+script = ExtResource("5_kwkyh")
+display_name = "water"
+color_outline = Color(0, 0, 1, 1)
+color_1 = Color(0.678431, 0.847059, 0.901961, 1)
+color_2 = Color(0.878431, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_4kurj"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_yiyn3")
+productivity = 1
+fertility = 3
+lifespan = 3
+
+[sub_resource type="Resource" id="Resource_fbhfn"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_yiyn3")
+productivity = 1
+fertility = 3
+lifespan = 3
+
+[sub_resource type="Resource" id="Resource_ged0w"]
+script = ExtResource("6_mhrjm")
+chromosome1 = SubResource("Resource_4kurj")
+chromosome2 = SubResource("Resource_fbhfn")
+role = 1
+
+[sub_resource type="Resource" id="Resource_o0r3v"]
+script = ExtResource("5_kwkyh")
+display_name = "water"
+color_outline = Color(0, 0, 1, 1)
+color_1 = Color(0.678431, 0.847059, 0.901961, 1)
+color_2 = Color(0.878431, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_x3g7p"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_o0r3v")
+productivity = 1
+fertility = 3
+lifespan = 3
+
+[sub_resource type="Resource" id="Resource_myakp"]
+script = ExtResource("4_2ha0q")
+species = SubResource("Resource_o0r3v")
+productivity = 1
+fertility = 3
+lifespan = 3
+
+[sub_resource type="Resource" id="Resource_scysw"]
+script = ExtResource("6_mhrjm")
+chromosome1 = SubResource("Resource_x3g7p")
+chromosome2 = SubResource("Resource_myakp")
+role = 2
 
 [node name="BeeCatalogueTool" type="Control"]
 layout_mode = 3
@@ -16,3 +264,120 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 columns = 10
+
+[node name="@VBoxContainer@19677" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="BeeComponent" type="Control" parent="GridContainer/@VBoxContainer@19677" instance=ExtResource("2_jqi8h")]
+layout_mode = 2
+script = ExtResource("3_7io0r")
+bee = SubResource("Resource_v8y1h")
+
+[node name="@Label@19678" type="Label" parent="GridContainer/@VBoxContainer@19677"]
+layout_mode = 2
+text = "common"
+horizontal_alignment = 1
+
+[node name="@VBoxContainer@19679" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="BeeComponent" type="Control" parent="GridContainer/@VBoxContainer@19679" instance=ExtResource("2_jqi8h")]
+layout_mode = 2
+script = ExtResource("3_7io0r")
+bee = SubResource("Resource_mo4rm")
+
+[node name="@Label@19680" type="Label" parent="GridContainer/@VBoxContainer@19679"]
+layout_mode = 2
+text = "common"
+horizontal_alignment = 1
+
+[node name="@VBoxContainer@19681" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="BeeComponent" type="Control" parent="GridContainer/@VBoxContainer@19681" instance=ExtResource("2_jqi8h")]
+layout_mode = 2
+script = ExtResource("3_7io0r")
+bee = SubResource("Resource_kadd1")
+
+[node name="@Label@19682" type="Label" parent="GridContainer/@VBoxContainer@19681"]
+layout_mode = 2
+text = "common"
+horizontal_alignment = 1
+
+[node name="@VBoxContainer@19683" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="BeeComponent" type="Control" parent="GridContainer/@VBoxContainer@19683" instance=ExtResource("2_jqi8h")]
+layout_mode = 2
+script = ExtResource("3_7io0r")
+bee = SubResource("Resource_of5nc")
+
+[node name="@Label@19684" type="Label" parent="GridContainer/@VBoxContainer@19683"]
+layout_mode = 2
+text = "forest"
+horizontal_alignment = 1
+
+[node name="@VBoxContainer@19685" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="BeeComponent" type="Control" parent="GridContainer/@VBoxContainer@19685" instance=ExtResource("2_jqi8h")]
+layout_mode = 2
+script = ExtResource("3_7io0r")
+bee = SubResource("Resource_r3c8n")
+
+[node name="@Label@19686" type="Label" parent="GridContainer/@VBoxContainer@19685"]
+layout_mode = 2
+text = "forest"
+horizontal_alignment = 1
+
+[node name="@VBoxContainer@19687" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="BeeComponent" type="Control" parent="GridContainer/@VBoxContainer@19687" instance=ExtResource("2_jqi8h")]
+layout_mode = 2
+script = ExtResource("3_7io0r")
+bee = SubResource("Resource_3ck48")
+
+[node name="@Label@19688" type="Label" parent="GridContainer/@VBoxContainer@19687"]
+layout_mode = 2
+text = "forest"
+horizontal_alignment = 1
+
+[node name="@VBoxContainer@19689" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="BeeComponent" type="Control" parent="GridContainer/@VBoxContainer@19689" instance=ExtResource("2_jqi8h")]
+layout_mode = 2
+script = ExtResource("3_7io0r")
+bee = SubResource("Resource_onkt8")
+
+[node name="@Label@19690" type="Label" parent="GridContainer/@VBoxContainer@19689"]
+layout_mode = 2
+text = "water"
+horizontal_alignment = 1
+
+[node name="@VBoxContainer@19691" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="BeeComponent" type="Control" parent="GridContainer/@VBoxContainer@19691" instance=ExtResource("2_jqi8h")]
+layout_mode = 2
+script = ExtResource("3_7io0r")
+bee = SubResource("Resource_ged0w")
+
+[node name="@Label@19692" type="Label" parent="GridContainer/@VBoxContainer@19691"]
+layout_mode = 2
+text = "water"
+horizontal_alignment = 1
+
+[node name="@VBoxContainer@19693" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="BeeComponent" type="Control" parent="GridContainer/@VBoxContainer@19693" instance=ExtResource("2_jqi8h")]
+layout_mode = 2
+script = ExtResource("3_7io0r")
+bee = SubResource("Resource_scysw")
+
+[node name="@Label@19694" type="Label" parent="GridContainer/@VBoxContainer@19693"]
+layout_mode = 2
+text = "water"
+horizontal_alignment = 1
