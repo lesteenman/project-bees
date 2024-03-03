@@ -6,6 +6,7 @@ extends PanelContainer
 		update_bee()
 
 @export var allow_input: bool = true
+@export var requires_role: Bee.BeeRoleEnum
 
 @onready var bee_texture = $MarginContainer/VBoxContainer/PanelContainer/BeeTexture
 @onready var bee_name = $MarginContainer/VBoxContainer/BeeName
@@ -30,7 +31,10 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	return bee
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-	return allow_input && !bee && data.get_type() == "Bee"
+	return allow_input \
+		&& !bee \
+		&& data.get_type() == "Bee" \
+		&& (requires_role == null || data.role == requires_role)
 #
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	bee = data

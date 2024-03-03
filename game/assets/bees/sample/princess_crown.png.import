@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpfodsdt0vgkv"
-path="res://.godot/imported/crown.png-1bc12d5383944081a366a701ec141c5e.ctex"
+uid="uid://1fybmygbfbok"
+path="res://.godot/imported/princess_crown.png-deb50db1988419830ae0379a464fe4be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/assets/bees/sample/crown.png"
-dest_files=["res://.godot/imported/crown.png-1bc12d5383944081a366a701ec141c5e.ctex"]
+source_file="res://game/assets/bees/sample/princess_crown.png"
+dest_files=["res://.godot/imported/princess_crown.png-deb50db1988419830ae0379a464fe4be.ctex"]
 
 [params]
 

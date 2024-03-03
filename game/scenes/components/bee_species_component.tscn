@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dr7cgc0643w3o"]
+[gd_scene load_steps=11 format=3 uid="uid://dr7cgc0643w3o"]
 
 [ext_resource type="Script" path="res://game/scenes/components/bee_species_component.gd" id="1_5ihdc"]
 [ext_resource type="Texture2D" uid="uid://3p1ry810rlfd" path="res://game/assets/bees/sample/outline_body.png" id="2_uxvb4"]
@@ -8,11 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cxvs3sehct8wf" path="res://game/assets/bees/sample/color_2.png" id="6_d5s00"]
 [ext_resource type="Texture2D" uid="uid://cp1qhimbdjptw" path="res://game/assets/bees/sample/wings.png" id="7_sjxga"]
 [ext_resource type="Texture2D" uid="uid://ctng0v682noi8" path="res://game/assets/bees/sample/legs.png" id="8_t32rs"]
-[ext_resource type="Texture2D" uid="uid://dpfodsdt0vgkv" path="res://game/assets/bees/sample/crown.png" id="9_u0qrp"]
+[ext_resource type="Texture2D" uid="uid://up1njoulgljx" path="res://game/assets/bees/sample/queen_crown.png" id="9_oberc"]
+[ext_resource type="Texture2D" uid="uid://1fybmygbfbok" path="res://game/assets/bees/sample/princess_crown.png" id="10_adhff"]
 
 [node name="BeeSpeciesComponent" type="CenterContainer"]
 custom_minimum_size = Vector2(64, 64)
 script = ExtResource("1_5ihdc")
+role = null
 
 [node name="BodyOutline" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -47,7 +49,12 @@ texture = ExtResource("7_sjxga")
 layout_mode = 2
 texture = ExtResource("8_t32rs")
 
-[node name="Crown" type="TextureRect" parent="."]
+[node name="QueenCrown" type="TextureRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("9_u0qrp")
+texture = ExtResource("9_oberc")
+
+[node name="PrincessCrown" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("10_adhff")

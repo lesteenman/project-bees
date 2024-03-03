@@ -1,8 +1,12 @@
 extends MarginContainer
 
+class_name InventorySlot
+
 var dragging_bee: Bee = null
 
 @export var allow_input := true
+@export var restrict_by_role := false
+@export var requires_role: Bee.BeeRoleEnum
 @export var bee: Bee = null:
 	set(value):
 		if value != bee:
@@ -59,7 +63,10 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	return dragging_bee
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-	return allow_input && !bee && data.get_type() == "Bee"
+	return allow_input \
+		&& !bee \
+		&& data.get_type() == "Bee" \
+		&& (!restrict_by_role || data.role == requires_role)
 #
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	bee = data

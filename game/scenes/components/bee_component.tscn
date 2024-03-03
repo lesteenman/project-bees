@@ -11,3 +11,4 @@ script = ExtResource("1_p2j26")
 [node name="BeeSpeciesComponent" parent="." instance=ExtResource("2_qluc4")]
 unique_name_in_owner = true
 layout_mode = 2
+role = 0

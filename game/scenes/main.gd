@@ -11,8 +11,8 @@ var menu_transition_tween
 const MENU_TRANSITION_TIME = 0.3
 
 func _ready():
-	var beelab = BeeLabModel.new()
-	bee_lab.beelab = beelab
+	#var beelab = BeeLabModel.new()
+	bee_lab.beelab = LabManager.labs[0]
 
 	screen_size = get_viewport_rect()
 

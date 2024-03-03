@@ -17,6 +17,12 @@ color = Color(0.4, 0.301961, 0.356863, 1)
 layout_mode = 2
 theme_override_constants/separation = 20
 
+[node name="StageLabel" type="Label" parent="VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Stage"
+horizontal_alignment = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/margin_left = 50
@@ -33,13 +39,33 @@ alignment = 1
 [node name="BeeSlot1" parent="VBoxContainer2/MarginContainer/HBoxContainer" instance=ExtResource("1_u0hdm")]
 unique_name_in_owner = true
 layout_mode = 2
+restrict_by_role = true
+requires_role = 1
 
-[node name="BeeSlotResult" parent="VBoxContainer2/MarginContainer/HBoxContainer" instance=ExtResource("1_u0hdm")]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="BeeSlotResult1" parent="VBoxContainer2/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+allow_input = false
+
+[node name="BeeSlotResult2" parent="VBoxContainer2/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+allow_input = false
+
+[node name="BeeSlotResult3" parent="VBoxContainer2/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_u0hdm")]
 unique_name_in_owner = true
 layout_mode = 2
 allow_input = false
 
 [node name="BeeSlot2" parent="VBoxContainer2/MarginContainer/HBoxContainer" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+restrict_by_role = true
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -54,6 +80,7 @@ disabled = true
 text = "Start"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50

@@ -6,7 +6,9 @@ extends CenterContainer
 @onready var texture_wings_outline: TextureRect = %WingsOutline
 @onready var texture_color_1: TextureRect = %Color1
 @onready var texture_color_2: TextureRect = %Color2
-@onready var crown: TextureRect = %Crown
+@onready var queen_crown: TextureRect = %QueenCrown
+@onready var princess_crown: TextureRect = %PrincessCrown
+
 
 #var species: BeeSpecies
 @export var species: BeeSpecies:
@@ -42,9 +44,9 @@ extends CenterContainer
 
 		update_sprite()
 
-@export var show_crown: bool:
+@export var role: Bee.BeeRoleEnum:
 	set(value):
-		show_crown = value
+		role = value
 		if not is_node_ready():
 			await ready
 		update_sprite()
@@ -55,4 +57,6 @@ func update_sprite():
 	texture_wings_outline.modulate = color_outline
 	texture_color_1.modulate = color_1
 	texture_color_2.modulate = color_2
-	crown.modulate = Color(1, 1, 1, 1) if show_crown else Color(1, 1, 1, 0)
+
+	queen_crown.modulate = Color(1, 1, 1, 1) if role == Bee.BeeRoleEnum.QUEEN else Color(1, 1, 1, 0)
+	princess_crown.modulate = Color(1, 1, 1, 1) if role == Bee.BeeRoleEnum.PRINCESS else Color(1, 1, 1, 0)
