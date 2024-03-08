@@ -1,16 +1,60 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://d15kfcgl26a1r"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://d15kfcgl26a1r"]
 
-[ext_resource type="FontFile" uid="uid://cqbefwn67lb7a" path="res://game/assets/fonts/Rubik-Regular.ttf" id="1_4ofj0"]
+[ext_resource type="FontFile" uid="uid://bypbgteuq7qoo" path="res://game/assets/fonts/monogram/ttf/monogram.ttf" id="1_fh8e6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ksfnd"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xtdi1"]
-content_margin_left = 4.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8t0w2"]
+content_margin_left = 5.0
 content_margin_top = 3.0
-content_margin_right = 4.0
+content_margin_right = 5.0
 content_margin_bottom = 3.0
-texture = SubResource("AtlasTexture_ksfnd")
+bg_color = Color(0.85098, 0.85098, 0.85098, 1)
+border_width_left = 2
+shadow_color = Color(0.117647, 0.117647, 0.117647, 0.47451)
+shadow_size = 1
+shadow_offset = Vector2(1, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogqwx"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 5.0
+content_margin_bottom = 3.0
+bg_color = Color(0.85098, 0.85098, 0.85098, 1)
+border_width_left = 2
+shadow_color = Color(0.117647, 0.117647, 0.117647, 0.47451)
+shadow_size = 1
+shadow_offset = Vector2(1, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvbdb"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 5.0
+content_margin_bottom = 3.0
+bg_color = Color(0.85098, 0.85098, 0.85098, 1)
+border_width_left = 2
+shadow_color = Color(0.117647, 0.117647, 0.117647, 0.47451)
+shadow_size = 1
+shadow_offset = Vector2(1, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwxbq"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 5.0
+content_margin_bottom = 3.0
+bg_color = Color(0.85098, 0.85098, 0.85098, 1)
+border_width_left = 2
+shadow_color = Color(0.117647, 0.117647, 0.117647, 0.47451)
+shadow_size = 1
+shadow_offset = Vector2(1, 2)
 
 [resource]
-Button/fonts/font = ExtResource("1_4ofj0")
-Button/styles/normal = SubResource("StyleBoxTexture_xtdi1")
+default_font = ExtResource("1_fh8e6")
+default_font_size = 42
+Button/colors/font_color = Color(0.0352941, 0.0352941, 0.0352941, 1)
+Button/colors/font_focus_color = Color(0.0352941, 0.0352941, 0.0352941, 1)
+Button/colors/font_hover_color = Color(0.27451, 0.27451, 0.27451, 1)
+Button/font_sizes/font_size = 50
+Button/fonts/font = ExtResource("1_fh8e6")
+Button/styles/focus = SubResource("StyleBoxFlat_8t0w2")
+Button/styles/hover = SubResource("StyleBoxFlat_ogqwx")
+Button/styles/normal = SubResource("StyleBoxFlat_hvbdb")
+Button/styles/pressed = SubResource("StyleBoxFlat_uwxbq")

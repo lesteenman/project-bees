@@ -34,4 +34,5 @@ texture = ExtResource("2_ygbx0")
 
 [node name="BeeLabel" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2

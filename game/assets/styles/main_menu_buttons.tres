@@ -17,6 +17,8 @@ texture = SubResource("AtlasTexture_7yitd")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nqvwp"]
 texture = ExtResource("3_pyi4f")
+texture_margin_top = 20.0
+texture_margin_bottom = 20.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 

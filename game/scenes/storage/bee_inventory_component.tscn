@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5dqyx3hdxujr"]
+
+[ext_resource type="Script" path="res://game/scenes/storage/bee_inventory_component.gd" id="1_kpsjd"]
+[ext_resource type="StyleBox" uid="uid://blbrn3ysdnjqv" path="res://game/assets/styles/BorderedLightWood.tres" id="1_pvlly"]
+[ext_resource type="PackedScene" uid="uid://ogiuricsrl57" path="res://game/scenes/storage/inventory_slot_component.tscn" id="2_xuggv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx4py"]
+bg_color = Color(0.298039, 0.227451, 0.294118, 1)
+
+[sub_resource type="Resource" id="Resource_7r51d"]
+
+[node name="BeeInventory" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 80)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 477.0
+grow_horizontal = 2
+theme_override_styles/panel = ExtResource("1_pvlly")
+script = ExtResource("1_kpsjd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wx4py")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="InventoryGrid" type="GridContainer" parent="VBoxContainer/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 7
+
+[node name="InventorySlot" parent="VBoxContainer/MarginContainer/ScrollContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
+layout_mode = 2
+bee = SubResource("Resource_7r51d")
+
+[node name="InventorySlot2" parent="VBoxContainer/MarginContainer/ScrollContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="InventorySlot3" parent="VBoxContainer/MarginContainer/ScrollContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
+layout_mode = 2
+size_flags_vertical = 2
+bee = SubResource("Resource_7r51d")
+
+[node name="InventorySlot4" parent="VBoxContainer/MarginContainer/ScrollContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="InventorySlot5" parent="VBoxContainer/MarginContainer/ScrollContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
+layout_mode = 2
+size_flags_vertical = 2
+bee = SubResource("Resource_7r51d")
+
+[node name="InventorySlot6" parent="VBoxContainer/MarginContainer/ScrollContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="InventorySlot7" parent="VBoxContainer/MarginContainer/ScrollContainer/InventoryGrid" instance=ExtResource("2_xuggv")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 1
+
+[connection signal="ready" from="." to="." method="_on_ready"]
