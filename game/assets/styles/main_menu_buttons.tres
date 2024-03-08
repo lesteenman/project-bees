@@ -1,7 +1,27 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dti8rlkl30lkp"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dti8rlkl30lkp"]
 
 [ext_resource type="FontFile" uid="uid://cqbefwn67lb7a" path="res://game/assets/fonts/Rubik-Regular.ttf" id="1_cnajo"]
-[ext_resource type="StyleBox" uid="uid://b4jaodinptk7b" path="res://game/assets/styles/main_menu_button_panel.tres" id="2_mr7pd"]
+[ext_resource type="Texture2D" uid="uid://5keg6dohm0b3" path="res://game/assets/gui-spritesheet.png" id="3_nhkg2"]
+[ext_resource type="Texture2D" uid="uid://baa0hsom8pmna" path="res://game/assets/wood-texture-1.png" id="3_pyi4f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yitd"]
+atlas = ExtResource("3_nhkg2")
+region = Rect2(232, 47, 114, 76)
+margin = Rect2(2.08165e-12, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y1kop"]
+texture = SubResource("AtlasTexture_7yitd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m8cra"]
+texture = SubResource("AtlasTexture_7yitd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nqvwp"]
+texture = ExtResource("3_pyi4f")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pem7s"]
+texture = SubResource("AtlasTexture_7yitd")
 
 [resource]
 default_font_size = 80
@@ -9,7 +29,7 @@ Button/colors/font_color = Color(0.290196, 0.215686, 0.286275, 1)
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 2
 Button/fonts/font = ExtResource("1_cnajo")
-Button/styles/focus = ExtResource("2_mr7pd")
-Button/styles/hover = ExtResource("2_mr7pd")
-Button/styles/normal = ExtResource("2_mr7pd")
-Button/styles/pressed = ExtResource("2_mr7pd")
+Button/styles/focus = SubResource("StyleBoxTexture_y1kop")
+Button/styles/hover = SubResource("StyleBoxTexture_m8cra")
+Button/styles/normal = SubResource("StyleBoxTexture_nqvwp")
+Button/styles/pressed = SubResource("StyleBoxTexture_pem7s")

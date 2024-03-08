@@ -12,9 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://1fybmygbfbok" path="res://game/assets/bees/sample/princess_crown.png" id="10_adhff"]
 
 [node name="BeeSpeciesComponent" type="CenterContainer"]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(80, 80)
 script = ExtResource("1_5ihdc")
-role = null
 
 [node name="BodyOutline" type="TextureRect" parent="."]
 unique_name_in_owner = true

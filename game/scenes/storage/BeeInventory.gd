@@ -1,7 +1,7 @@
 extends PanelContainer
 
 @onready var inventory_grid = $MarginContainer/InventoryGrid
-const INVENTORY_SLOT = preload("res://game/scenes/storage/InventorySlot.tscn")
+const INVENTORY_SLOT = preload("res://game/scenes/storage/inventory_slot_component.tscn")
 
 var selected = false
 var slots = []

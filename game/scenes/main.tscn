@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://d15kfcgl26a1r" path="res://game/assets/styles/base_theme.tres" id="1_210bq"]
 [ext_resource type="Script" path="res://game/scenes/main.gd" id="1_s6oc8"]
-[ext_resource type="PackedScene" uid="uid://bvaf4sqv7dbss" path="res://game/scenes/lab/BeeLab.tscn" id="2_vhan4"]
+[ext_resource type="PackedScene" uid="uid://bvaf4sqv7dbss" path="res://game/scenes/lab/bee_lab_scene.tscn" id="2_vhan4"]
 [ext_resource type="PackedScene" uid="uid://c5dqyx3hdxujr" path="res://game/scenes/storage/BeeInventory.tscn" id="3_cwqui"]
 [ext_resource type="Script" path="res://game/scenes/LabControl.gd" id="4_mamqb"]
 [ext_resource type="Theme" uid="uid://dti8rlkl30lkp" path="res://game/assets/styles/main_menu_buttons.tres" id="5_6n0qg"]
@@ -84,6 +84,10 @@ grow_vertical = 2
 script = ExtResource("4_mamqb")
 metadata/_edit_group_ = true
 
+[node name="Spacer" type="Control" parent="LabControl"]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="Header" type="PanelContainer" parent="LabControl"]
 layout_mode = 2
 
@@ -107,10 +111,6 @@ text = "Back"
 [node name="BeeLab" parent="LabControl" instance=ExtResource("2_vhan4")]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="Spacer" type="Control" parent="LabControl"]
-layout_mode = 2
-size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="LabControl"]
 clip_contents = false

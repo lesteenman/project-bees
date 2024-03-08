@@ -1,0 +1,146 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvaf4sqv7dbss"]
+
+[ext_resource type="Script" path="res://game/scenes/lab/bee_lab_scene.gd" id="1_eislu"]
+[ext_resource type="PackedScene" uid="uid://csd8mdla7oica" path="res://game/scenes/lab/BeeSlot.tscn" id="1_u0hdm"]
+[ext_resource type="Texture2D" uid="uid://bioqsrifnj6wj" path="res://game/assets/Pixel Art GUI Elements.png" id="2_f25r2"]
+[ext_resource type="Texture2D" uid="uid://5keg6dohm0b3" path="res://game/assets/gui-spritesheet.png" id="3_3rdb6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpo5h"]
+atlas = ExtResource("2_f25r2")
+region = Rect2(0, 96, 48, 32)
+margin = Rect2(2.08165e-12, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgm27"]
+atlas = ExtResource("3_3rdb6")
+region = Rect2(37, 46, 180, 188)
+
+[node name="BeeLab" type="PanelContainer"]
+offset_right = 210.0
+offset_bottom = 171.0
+script = ExtResource("1_eislu")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 2
+color = Color(0.4, 0.301961, 0.356863, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_hpo5h")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_cgm27")
+patch_margin_left = 18
+patch_margin_top = 26
+patch_margin_right = 18
+patch_margin_bottom = 26
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="StageLabel" type="Label" parent="MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Stage"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/MarginContainer"]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="BeeSlot1" parent="MarginContainer/VBoxContainer2/MarginContainer/HBoxContainer" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+restrict_by_role = true
+requires_role = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="BeeSlotResult1" parent="MarginContainer/VBoxContainer2/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+allow_input = false
+
+[node name="BeeSlotResult2" parent="MarginContainer/VBoxContainer2/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+allow_input = false
+
+[node name="BeeSlotResult3" parent="MarginContainer/VBoxContainer2/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+allow_input = false
+
+[node name="BeeSlot2" parent="MarginContainer/VBoxContainer2/MarginContainer/HBoxContainer" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+restrict_by_role = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer2/MarginContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Start"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/MarginContainer2"]
+layout_mode = 2
+
+[node name="Bee1Details" type="Label" parent="MarginContainer/VBoxContainer2/MarginContainer2/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BeeResultDetails" type="Label" parent="MarginContainer/VBoxContainer2/MarginContainer2/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+
+[node name="Bee2Details" type="Label" parent="MarginContainer/VBoxContainer2/MarginContainer2/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/HBoxContainer2/StartButton" to="." method="_on_start_button_pressed"]

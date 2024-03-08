@@ -13,9 +13,7 @@ var dragging_bee: Bee = null
 			bee = value
 			updateBee()
 
-@onready var texture_rect = %BeeTexture
 @onready var label = %BeeLabel
-#@onready var bee_component: Control = %BeeComponent
 @onready var bee_holder = %BeeHolder
 
 const BEE_COMPONENT = preload("res://game/scenes/components/bee_component.tscn")
@@ -40,7 +38,6 @@ func updateBee() -> void:
 		if display_name:
 			label.text = display_name
 	else:
-		texture_rect.texture = null
 		label.text = ""
 		bee_component.queue_free()
 		bee_component = null
