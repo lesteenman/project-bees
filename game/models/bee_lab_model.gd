@@ -14,7 +14,7 @@ signal slots_updated # on_slots_updated()
 signal stage_changed # on_stage_changed(stage: Stage)
 signal progress # on_progress(progress: float[0,100])
 
-enum Stage { IDLE, BREEDING }
+enum Stage { IDLE, BREEDING, COLLECTION }
 
 func _init() -> void:
 	input_slots.resize(2)
@@ -35,8 +35,15 @@ func set_input(index: int, bee: Bee):
 
 	input_slots[index] = bee
 
-func remove_output(index: int, bee: Bee):
-	pass
+#func remove_output(index: int):
+	#output_slots[index] = null
+	#slots_updated.emit()
+
+func clear_output():
+	output_slots.fill(null)
+	stage = Stage.IDLE
+	stage_changed.emit(stage)
+	slots_updated.emit()
 
 func update_progress():
 	var current_progress = min(100.0, (queen.lifetime / queen.get_max_lifetime()) * 100)
@@ -45,6 +52,7 @@ func update_progress():
 		breed()
 
 func mate():
+	print("MATING TIME")
 	if input_slots.size() != 2:
 		push_error("attempted to mate with %d inputs filled" % input_slots.size())
 		return
@@ -85,10 +93,9 @@ func breed():
 
 	queen = null
 
-	slots_updated.emit()
-
-	stage = Stage.IDLE
+	stage = Stage.COLLECTION
 	stage_changed.emit(stage)
+	slots_updated.emit()
 
 	# TODO: Instead of doing this: Should allow setting a queen and changing
 		# UI, then finalizing the breeding cycle and adding multiple inventory

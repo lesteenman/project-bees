@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvaf4sqv7dbss"]
+[gd_scene load_steps=11 format=3 uid="uid://bvaf4sqv7dbss"]
 
 [ext_resource type="Script" path="res://game/scenes/lab/bee_lab_scene.gd" id="1_eislu"]
-[ext_resource type="PackedScene" uid="uid://csd8mdla7oica" path="res://game/scenes/lab/BeeSlot.tscn" id="1_u0hdm"]
+[ext_resource type="PackedScene" uid="uid://csd8mdla7oica" path="res://game/scenes/lab/bee_slot.tscn" id="1_u0hdm"]
 [ext_resource type="Texture2D" uid="uid://bioqsrifnj6wj" path="res://game/assets/Pixel Art GUI Elements.png" id="2_f25r2"]
 [ext_resource type="Texture2D" uid="uid://5keg6dohm0b3" path="res://game/assets/gui-spritesheet.png" id="3_3rdb6"]
 [ext_resource type="LabelSettings" uid="uid://bofpmxs6iutll" path="res://game/assets/styles/label.tres" id="4_1j0mv"]
@@ -16,9 +16,19 @@ margin = Rect2(2.08165e-12, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 atlas = ExtResource("3_3rdb6")
 region = Rect2(37, 46, 180, 188)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cxbh"]
+bg_color = Color(0.721569, 0.384314, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(1, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcg5h"]
+bg_color = Color(0.878431, 0.470588, 0, 1)
+
 [node name="BeeLab" type="PanelContainer"]
-offset_right = 210.0
-offset_bottom = 171.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 274.0
+grow_horizontal = 2
 script = ExtResource("1_eislu")
 metadata/_edit_group_ = true
 
@@ -42,110 +52,228 @@ patch_margin_bottom = 26
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_bottom = 40
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+[node name="OldItems" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="StageLabel" type="Label" parent="MarginContainer/VBoxContainer2"]
+[node name="StageLabel" type="Label" parent="OldItems"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Stage"
 label_settings = ExtResource("4_1j0mv")
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="OldItems"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="OldItems/MarginContainer"]
 layout_direction = 2
 layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="BeeSlot1" parent="MarginContainer/VBoxContainer2/MarginContainer/HBoxContainer" instance=ExtResource("1_u0hdm")]
-unique_name_in_owner = true
-layout_mode = 2
-restrict_by_role = true
-requires_role = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="OldItems/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="BeeSlotResult1" parent="MarginContainer/VBoxContainer2/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_u0hdm")]
-unique_name_in_owner = true
-layout_mode = 2
-allow_input = false
-
-[node name="BeeSlotResult2" parent="MarginContainer/VBoxContainer2/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_u0hdm")]
-unique_name_in_owner = true
-layout_mode = 2
-allow_input = false
-
-[node name="BeeSlotResult3" parent="MarginContainer/VBoxContainer2/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_u0hdm")]
-unique_name_in_owner = true
-layout_mode = 2
-allow_input = false
-
-[node name="BeeSlot2" parent="MarginContainer/VBoxContainer2/MarginContainer/HBoxContainer" instance=ExtResource("1_u0hdm")]
-unique_name_in_owner = true
-layout_mode = 2
-restrict_by_role = true
-
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer2"]
+[node name="MarginContainer3" type="MarginContainer" parent="OldItems"]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer2/MarginContainer3"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="OldItems"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer2/HBoxContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("6_os8yw")
-disabled = true
-text = "START
-"
-
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer2"]
+[node name="MarginContainer2" type="MarginContainer" parent="OldItems"]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/MarginContainer2"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="OldItems/MarginContainer2"]
 layout_mode = 2
 
-[node name="Bee1Details" type="Label" parent="MarginContainer/VBoxContainer2/MarginContainer2/HBoxContainer3"]
+[node name="Bee1Details" type="Label" parent="OldItems/MarginContainer2/HBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BeeResultDetails" type="Label" parent="MarginContainer/VBoxContainer2/MarginContainer2/HBoxContainer3"]
+[node name="BeeResultDetails" type="Label" parent="OldItems/MarginContainer2/HBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_alignment = 1
 
-[node name="Bee2Details" type="Label" parent="MarginContainer/VBoxContainer2/MarginContainer2/HBoxContainer3"]
+[node name="Bee2Details" type="Label" parent="OldItems/MarginContainer2/HBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_alignment = 2
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/HBoxContainer2/StartButton" to="." method="_on_start_button_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LeftSection" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeftSectionMating" type="HBoxContainer" parent="MarginContainer/HBoxContainer/LeftSection"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/LeftSection/LeftSectionMating"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/LeftSection/LeftSectionMating"]
+layout_mode = 2
+
+[node name="BeeSlot1" parent="MarginContainer/HBoxContainer/LeftSection/LeftSectionMating/VBoxContainer" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+restrict_by_role = true
+requires_role = 1
+
+[node name="BeeSlot2" parent="MarginContainer/HBoxContainer/LeftSection/LeftSectionMating/VBoxContainer" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+restrict_by_role = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/LeftSection/LeftSectionMating"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer2" type="Control" parent="MarginContainer/HBoxContainer/LeftSection/LeftSectionMating/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/LeftSection/LeftSectionMating/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_5cxbh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kcg5h")
+fill_mode = 3
+show_percentage = false
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/LeftSection/LeftSectionMating/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeftSectionCollection" type="CenterContainer" parent="MarginContainer/HBoxContainer/LeftSection"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CollectButton" type="Button" parent="MarginContainer/HBoxContainer/LeftSection/LeftSectionCollection"]
+layout_mode = 2
+theme = ExtResource("6_os8yw")
+text = "COLLECT"
+
+[node name="RightSection" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="RightSectionButtons" type="HBoxContainer" parent="MarginContainer/HBoxContainer/RightSection"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Spacer2" type="Control" parent="MarginContainer/HBoxContainer/RightSection/RightSectionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/RightSection/RightSectionButtons"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/RightSection/RightSectionButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PredictButton" type="Button" parent="MarginContainer/HBoxContainer/RightSection/RightSectionButtons/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_os8yw")
+disabled = true
+text = "PREDICT"
+
+[node name="Spacer2" type="Control" parent="MarginContainer/HBoxContainer/RightSection/RightSectionButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer/RightSection/RightSectionButtons/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("6_os8yw")
+disabled = true
+text = "MATE"
+
+[node name="Spacer3" type="Control" parent="MarginContainer/HBoxContainer/RightSection/RightSectionButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/RightSection/RightSectionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RightSectionOutput" type="GridContainer" parent="MarginContainer/HBoxContainer/RightSection"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_stretch_ratio = 2.0
+columns = 3
+
+[node name="BeeSlotResult1" parent="MarginContainer/HBoxContainer/RightSection/RightSectionOutput" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+allow_input = false
+
+[node name="BeeSlotResult2" parent="MarginContainer/HBoxContainer/RightSection/RightSectionOutput" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+allow_input = false
+
+[node name="BeeSlotResult3" parent="MarginContainer/HBoxContainer/RightSection/RightSectionOutput" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+allow_input = false
+
+[node name="BeeSlotResult4" parent="MarginContainer/HBoxContainer/RightSection/RightSectionOutput" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+allow_input = false
+
+[node name="BeeSlotResult5" parent="MarginContainer/HBoxContainer/RightSection/RightSectionOutput" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+allow_input = false
+
+[node name="BeeSlotResult6" parent="MarginContainer/HBoxContainer/RightSection/RightSectionOutput" instance=ExtResource("1_u0hdm")]
+unique_name_in_owner = true
+layout_mode = 2
+allow_input = false
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/LeftSection/LeftSectionCollection/CollectButton" to="." method="_on_collect_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/RightSection/RightSectionButtons/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

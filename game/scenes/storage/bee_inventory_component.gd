@@ -45,6 +45,7 @@ func add_bee_to_storage(bee: Bee):
 		if not s.bee:
 			print("add to slot ", s)
 			s.bee = bee
+			break
 
 func _on_bee_removed(bee: Bee):
 	PlayerBees.remove_item(bee)

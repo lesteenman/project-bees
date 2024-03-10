@@ -49,16 +49,25 @@ var inventory_handler
 @onready var bee_2_details: Label = %Bee2Details
 @onready var bee_result_details: Label = %BeeResultDetails
 
+@onready var left_section_mating: Container = %LeftSectionMating
+@onready var left_section_collection: Container = %LeftSectionCollection
+@onready var right_section_buttons: Container = %RightSectionButtons
+@onready var right_section_output: Container = %RightSectionOutput
+
 func _ready() -> void:
-	pass
-	#bee_slot_1.connect("bee_removed", func(): set_bee_1(null))
-	#bee_slot_1.connect("bee_added", func(value): set_bee_1(value))
-#
-	#bee_slot_2.connect("bee_removed", func(): set_bee_2(null))
-	#bee_slot_2.connect("bee_added", func(value): set_bee_2(value))
-#
-	#bee_slot_result.connect("bee_removed", func(): set_bee_result(null))
-	#bee_slot_result.connect("bee_added", func(value): set_bee_result(value))
+	var left_side_height = min(
+		left_section_mating.get_rect().size.y,
+		left_section_collection.get_rect().size.y
+	) as int
+	left_section_mating.custom_minimum_size = Vector2(0, left_side_height)
+	left_section_collection.custom_minimum_size = Vector2(0, left_side_height)
+
+	var right_side_height = min(
+		right_section_buttons.get_rect().size.y,
+		right_section_output.get_rect().size.y
+	)
+	right_section_buttons.custom_minimum_size = Vector2(0, right_side_height)
+	right_section_output.custom_minimum_size = Vector2(0, right_side_height)
 
 #####
 # Model signal handling
@@ -78,39 +87,91 @@ func refresh_slots() -> void:
 	bee_slot_result_2.bee = beelab.output_slots[1]
 	bee_slot_result_3.bee = beelab.output_slots[2]
 
+	on_inputs_changed()
+
 func on_stage_changed(stage: BeeLabModel.Stage) -> void:
-	var stageLabel = %StageLabel
-	stageLabel.text = BeeLabModel.Stage.keys()[stage]
+	print("stage changed to ", BeeLabModel.Stage.keys()[stage])
+	if stage == BeeLabModel.Stage.BREEDING:
+		progress_bar.modulate = Color(Color.WHITE, 1)
+
+		left_section_mating.visible = true
+		#left_section_mating.modulate = Color(Color.WHITE, 1)
+		#left_section_mating.mouse_filter = Control.MOUSE_FILTER_PASS
+#
+		left_section_collection.visible = false
+		#left_section_collection.modulate = Color(Color.WHITE, 0)
+		#left_section_collection.mouse_filter = Control.MOUSE_FILTER_IGNORE
+#
+		right_section_buttons.visible = false
+		#right_section_buttons.modulate = Color(Color.WHITE, 0)
+		#right_section_buttons.mouse_filter = Control.MOUSE_FILTER_IGNORE
+#
+		right_section_output.visible = true
+		#right_section_output.modulate = Color(Color.WHITE, 1)
+		#right_section_output.mouse_filter = Control.MOUSE_FILTER_PASS
+
+	elif stage == BeeLabModel.Stage.COLLECTION:
+		left_section_mating.visible = false
+		#left_section_mating.modulate = Color(Color.WHITE, 0)
+		#left_section_mating.mouse_filter = Control.MOUSE_FILTER_IGNORE
+#
+		left_section_collection.visible = true
+		#left_section_collection.modulate = Color(Color.WHITE, 1)
+		#left_section_collection.mouse_filter = Control.MOUSE_FILTER_PASS
+#
+		right_section_buttons.visible = false
+		#right_section_buttons.modulate = Color(Color.WHITE, 0)
+		#right_section_buttons.mouse_filter = Control.MOUSE_FILTER_IGNORE
+#
+		right_section_output.visible = true
+		#right_section_output.modulate = Color(Color.WHITE, 1)
+		#right_section_output.mouse_filter = Control.MOUSE_FILTER_PASS
+
+	elif stage == BeeLabModel.Stage.IDLE:
+		progress_bar.modulate = Color(Color.WHITE, 0)
+
+		left_section_mating.visible = true
+		#left_section_mating.modulate = Color(Color.WHITE, 1)
+		#left_section_mating.mouse_filter = Control.MOUSE_FILTER_PASS
+#
+		left_section_collection.visible = false
+		#left_section_collection.modulate = Color(Color.WHITE, 0)
+		#left_section_collection.mouse_filter = Control.MOUSE_FILTER_IGNORE
+#
+		right_section_buttons.visible = true
+		#right_section_buttons.modulate = Color(Color.WHITE, 1)
+		#right_section_buttons.mouse_filter = Control.MOUSE_FILTER_PASS
+#
+		right_section_output.visible = false
+		#right_section_output.modulate = Color(Color.WHITE, 0)
+		#right_section_output.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	else:
+		push_error("unknown stage change: %s (%s)" % [stage, BeeLabModel.Stage.keys()[stage]])
+
+	#var stageLabel = %StageLabel
+	#stageLabel.text = BeeLabModel.Stage.keys()[stage]
 
 # Internal events handling
 
 func _on_start_button_pressed() -> void:
-	print("time to mate, mate!")
 	beelab.mate()
 
 func set_bee_1(bee: Bee):
-	print("set bee 1 to ", bee)
 	beelab.set_input(0, bee)
-	#beelab.bee1 = bee
-
-	start_button.disabled = !(beelab.input_slots.size() == 2 && beelab.input_slots[0] && beelab.input_slots[1])
-	#bee_1_details.text = build_description(bee)
-
 	bee_slot_1.bee = bee
+	on_inputs_changed()
 
 func set_bee_2(bee: Bee):
-	print("set bee 2 to ", bee)
 	beelab.set_input(1, bee)
-	#beelab.bee2 = bee
-
-	start_button.disabled = !(beelab.input_slots.size() == 2 && beelab.input_slots[0] && beelab.input_slots[1])
-	#bee_2_details.text = build_description(bee)
-
 	bee_slot_2.bee = bee
+	on_inputs_changed()
+
+func on_inputs_changed():
+	start_button.disabled = !(beelab.input_slots.size() == 2 && beelab.input_slots[0] && beelab.input_slots[1])
 
 func add_bee_result(bee: Bee) -> void:
 	bee_result_details.text = build_description(bee)
-	#bee_slot_result.bee = bee
 
 func build_description(bee: Bee) -> String:
 	if !bee:
@@ -122,3 +183,17 @@ func build_description(bee: Bee) -> String:
 	desc += "\nlifespan: %d" % bee.chromosome1.lifespan
 
 	return desc
+
+
+func _on_collect_button_pressed() -> void:
+	# TODO: FIX THE COLLECTION:
+	# - going back to IDLE does not fix the mate/predict buttons
+
+	print("collect all items")
+	for index in beelab.output_slots.size():
+		var bee = beelab.output_slots[index] as Bee
+		if bee:
+			print("collect", bee)
+			add_item_to_storage.emit(bee)
+	beelab.clear_output()
+	#beelab.remove_output(index)
