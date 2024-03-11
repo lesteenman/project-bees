@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvrrr734cc1m1"]
+
+[ext_resource type="Script" path="res://game/scenes/atlas/bee_atlas_scene.gd" id="1_qt4bl"]
+[ext_resource type="Texture2D" uid="uid://db60j60vxr65j" path="res://game/assets/atlas_tilemap.png" id="1_wrk58"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2if0y"]
+bg_color = Color(1, 0.533333, 0, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykvh5"]
+texture = ExtResource("1_wrk58")
+texture_region_size = Vector2i(106, 120)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gnbqn"]
+tile_shape = 3
+tile_size = Vector2i(98, 113)
+sources/1 = SubResource("TileSetAtlasSource_ykvh5")
+
+[node name="BeeAtlasScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qt4bl")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2if0y")
+
+[node name="TileMap" type="TileMap" parent="PanelContainer"]
+unique_name_in_owner = true
+tile_set = SubResource("TileSet_gnbqn")
+format = 2
+layer_0/tile_data = PackedInt32Array(131073, 1, 0, 131074, 65537, 0, 131075, 65537, 0, 131076, 1, 0, 131077, 65537, 0, 196612, 65537, 0, 262148, 1, 0, 262147, 65537, 0, 196610, 65537, 0, 196609, 1, 0, 196611, 65537, 0, 262146, 65537, 0, 196608, 65537, 0, 262144, 65537, 0, 262145, 65537, 0, 327680, 65537, 0, 327681, 1, 0, 327682, 65537, 0, 327683, 65537, 0, 327684, 65537, 0, 262149, 65537, 0, 327685, 65537, 0, 393221, 65537, 0, 393220, 65537, 0, 393219, 65537, 0, 393218, 65537, 0, 393217, 65537, 0, 393216, 65537, 0, 524287, 65537, 0, 458752, 65537, 0, 458753, 1, 0, 458754, 65537, 0, 524291, 65537, 0, 524292, 65537, 0, 524293, 1, 0, 589828, 65537, 0, 655364, 1, 0, 655363, 65537, 0, 720898, 65537, 0, 720897, 65537, 0, 720896, 65537, 0, 786431, 65537, 0, 720895, 65537, 0, 655359, 65537, 0, 589824, 1, 0, 589825, 65537, 0, 589826, 1, 0, 589827, 65537, 0, 655365, 65537, 0, 720899, 65537, 0, 655361, 65537, 0, 655360, 65537, 0, 524288, 65537, 0, 524289, 65537, 0, 524290, 65537, 0, 655362, 65537, 0, 720900, 65537, 0, 458756, 1, 0, 458757, 65537, 0, 524294, 65537, 0, 589829, 65537, 0, 458755, 65537, 0)

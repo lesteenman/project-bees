@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ciud1r0307wkl"]
+[gd_scene load_steps=12 format=3 uid="uid://ciud1r0307wkl"]
 
 [ext_resource type="Theme" uid="uid://d15kfcgl26a1r" path="res://game/assets/styles/base_theme.tres" id="1_210bq"]
 [ext_resource type="Script" path="res://game/scenes/main.gd" id="1_s6oc8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c5dqyx3hdxujr" path="res://game/scenes/storage/bee_inventory_component.tscn" id="3_cwqui"]
 [ext_resource type="Script" path="res://game/scenes/LabControl.gd" id="4_mamqb"]
 [ext_resource type="Theme" uid="uid://dti8rlkl30lkp" path="res://game/assets/styles/main_menu_buttons.tres" id="5_6n0qg"]
+[ext_resource type="PackedScene" uid="uid://bvrrr734cc1m1" path="res://game/scenes/atlas/bee_atlas_scene.tscn" id="7_nmjfy"]
 
 [sub_resource type="Gradient" id="Gradient_wlo3x"]
 offsets = PackedFloat32Array(0, 0.99763)
@@ -63,7 +64,7 @@ custom_minimum_size = Vector2(2.08165e-12, 32)
 layout_mode = 2
 color = Color(0.298039, 0.227451, 0.294118, 1)
 
-[node name="Beeopedia" type="Button" parent="MainMenu"]
+[node name="SpeciesAtlas" type="Button" parent="MainMenu"]
 layout_mode = 2
 theme = ExtResource("5_6n0qg")
 text = "SPECIES ATLAS"
@@ -103,27 +104,6 @@ metadata/_edit_group_ = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Header" type="PanelContainer" parent="LabControl"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3o3uk")
-
-[node name="MarginContainer" type="MarginContainer" parent="LabControl/Header"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 8
-
-[node name="HBoxContainer" type="HBoxContainer" parent="LabControl/Header/MarginContainer"]
-layout_mode = 2
-
-[node name="LabBackButton" type="Button" parent="LabControl/Header/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("1_210bq")
-theme_override_font_sizes/font_size = 28
-text = "Back"
-
 [node name="BeeLab" parent="LabControl" instance=ExtResource("2_vhan4")]
 unique_name_in_owner = true
 layout_mode = 2
@@ -148,4 +128,36 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[connection signal="pressed" from="LabControl/Header/MarginContainer/HBoxContainer/LabBackButton" to="LabControl" method="_on_lab_back_button_pressed"]
+[node name="BeeAtlasScene" parent="." instance=ExtResource("7_nmjfy")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 2220.0
+offset_right = 2220.0
+
+[node name="Header" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 49.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3o3uk")
+
+[node name="MarginContainer" type="MarginContainer" parent="Header"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Header/MarginContainer"]
+layout_mode = 2
+
+[node name="LabBackButton" type="Button" parent="Header/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_210bq")
+theme_override_font_sizes/font_size = 28
+text = "Back"
+
+[connection signal="pressed" from="Header/MarginContainer/HBoxContainer/LabBackButton" to="." method="on_navigate_back"]
