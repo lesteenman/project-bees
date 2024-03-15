@@ -128,12 +128,6 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="BeeAtlasScene" parent="." instance=ExtResource("7_nmjfy")]
-unique_name_in_owner = true
-layout_mode = 1
-offset_left = 2220.0
-offset_right = 2220.0
-
 [node name="Header" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
@@ -159,5 +153,26 @@ layout_mode = 2
 theme = ExtResource("1_210bq")
 theme_override_font_sizes/font_size = 28
 text = "Back"
+
+[node name="BeeAtlasViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2220.0
+offset_right = 2220.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="BeeAtlasViewport" type="SubViewport" parent="BeeAtlasViewportContainer"]
+unique_name_in_owner = true
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(720, 1280)
+render_target_update_mode = 4
+
+[node name="BeeAtlasScene" parent="BeeAtlasViewportContainer/BeeAtlasViewport" instance=ExtResource("7_nmjfy")]
+unique_name_in_owner = true
 
 [connection signal="pressed" from="Header/MarginContainer/HBoxContainer/LabBackButton" to="." method="on_navigate_back"]

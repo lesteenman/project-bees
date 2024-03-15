@@ -6,16 +6,19 @@ static func _static_init():
 	verify_species()
 	register_crossbreeds()
 
-
-static func create_base(species: SPECIES) -> Bee:
+static func create_species(species: SPECIES) -> BeeSpecies:
 	var stats = SPECIES_STATS.get(species)
-
-	var bee_species = BeeSpecies.new(
+	return BeeSpecies.new(
 		stats.display_name,
 		stats.color_outline,
 		stats.color_1,
 		stats.color_2,
 	)
+
+static func create_base(species: SPECIES) -> Bee:
+	var stats = SPECIES_STATS.get(species)
+
+	var bee_species = create_species(species)
 
 	var chromosome1 = Chromosome.new(
 		bee_species,

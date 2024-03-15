@@ -1,12 +1,14 @@
-extends Control
+extends Node
 
-@onready var tile_map: TileMap = %TileMap
+@export var debug_mode: bool = true
 
-# Called when the node enters the scene tree for the first time.
+@onready var background: PanelContainer = $PanelContainer
+
 func _ready() -> void:
-	pass # Replace with function body.
+	%BeeAtlasMap.map_size_changed.connect(update_background_size)
+	update_background_size(%BeeAtlasMap.real_used_rect)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func update_background_size(rect: Rect2) -> void:
+	print("updating background size to ", rect)
+	background.set_position(rect.position)
+	background.set_size(rect.size)

@@ -1,5 +1,6 @@
 @tool
 extends CenterContainer
+class_name BeeSpeciesComponent
 
 @onready var texture_head_outline: TextureRect = %HeadOutline
 @onready var texture_body_outline: TextureRect = %BodyOutline
