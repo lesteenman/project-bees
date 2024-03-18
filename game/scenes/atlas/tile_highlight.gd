@@ -33,10 +33,6 @@ func _input(event: InputEvent) -> void:
 			if drag_distance >= 30:
 				return
 
-			#print_debug("clicked at ", event.position, " relative to ", $PanelContainer.position, " or ", $PanelContainer.global_position)
-			print(event.global_position, event.position)
-			print(get_local_mouse_position())
-
 			highlighted_tiles = [get_local_mouse_position()]
 
 func update():

@@ -10,6 +10,7 @@ class_name BeeSpeciesComponent
 @onready var queen_crown: TextureRect = %QueenCrown
 @onready var princess_crown: TextureRect = %PrincessCrown
 
+signal clicked
 
 #var species: BeeSpecies
 @export var species: BeeSpecies:
@@ -61,3 +62,16 @@ func update_sprite():
 
 	queen_crown.modulate = Color(1, 1, 1, 1) if role == Bee.BeeRoleEnum.QUEEN else Color(1, 1, 1, 0)
 	princess_crown.modulate = Color(1, 1, 1, 1) if role == Bee.BeeRoleEnum.PRINCESS else Color(1, 1, 1, 0)
+
+var pressing_at
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+				pressing_at = event.position
+
+		if event.button_index == MOUSE_BUTTON_LEFT and event.is_released():
+			var drag_distance = pressing_at.distance_to(event.position)
+			if drag_distance >= 30:
+				return
+
+			clicked.emit(species)

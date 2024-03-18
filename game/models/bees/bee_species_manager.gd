@@ -9,6 +9,7 @@ static func _static_init():
 static func create_species(species: SPECIES) -> BeeSpecies:
 	var stats = SPECIES_STATS.get(species)
 	return BeeSpecies.new(
+		species,
 		stats.display_name,
 		stats.color_outline,
 		stats.color_1,

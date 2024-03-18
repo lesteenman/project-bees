@@ -46,11 +46,11 @@ func _draw() -> void:
 	var curve = Curve2D.new()
 
 	for i in points.size():
-		var position = points[i]
+		var pos = points[i]
 		var control_in = Vector2.ZERO
 		var control_out = Vector2.ZERO
 
-		curve.add_point(position, control_in, control_out)
+		curve.add_point(pos, control_in, control_out)
 
 	draw_dotted_line(curve, 20)
 
@@ -58,15 +58,15 @@ func _draw() -> void:
 	#draw_polyline(curve.get_baked_points(), color, 2.0)
 
 func draw_dotted_line(curve: Curve2D, point_dist: float):
-	var points = curve.get_baked_points()
-	var point_count = points.size()
+	var baked_points = curve.get_baked_points()
+	var point_count = baked_points.size()
 	var last_point = Vector2(0,0)
 	var current_point = Vector2(0,0)
 	var distance = 0.0
 	var _point_index = 0
 
 	for i in range(point_count):
-		current_point = points[i]
+		current_point = baked_points[i]
 		if i > 0:
 			distance += last_point.distance_to(current_point)
 			while distance > point_dist:
@@ -76,10 +76,3 @@ func draw_dotted_line(curve: Curve2D, point_dist: float):
 				draw_circle(round(circle_point),4,Color.YELLOW)
 				distance -= point_dist
 		last_point = current_point
-
-#var array_of_line_points # This already has the vectors which describe our line
-#for point in array_of_line_points:
-  ## The "get_perpendicular_vector()" function returns a vector that's a copy of the point, yet has been slid along a line parallel to two neighboring points. The "distance" variable is how far the control point should be from the originating point.
-  #var control_point1 = get_perpendicular_vector(point, distance)
-  #var control_point2 = get_perpendicular_vector(point, -distance)
-  #curve.add_point(point, control_point1, control_point2)

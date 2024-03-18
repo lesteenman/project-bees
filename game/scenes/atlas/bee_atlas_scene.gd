@@ -9,6 +9,5 @@ func _ready() -> void:
 	update_background_size(%BeeAtlasMap.real_used_rect)
 
 func update_background_size(rect: Rect2) -> void:
-	print("updating background size to ", rect)
 	background.set_position(rect.position)
 	background.set_size(rect.size)
